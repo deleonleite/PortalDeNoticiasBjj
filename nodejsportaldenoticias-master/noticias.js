@@ -1,20 +1,16 @@
-module.exports = function(app){
-   
-    app.get('/noticias', function(req, res){
-    
-        var mysql = require('mysql');
-        
-        var connection = mysql.createConnection({
-            host : 'localhost', 
-            usuario : 'dasa-root',
-            password : 'dasa',
-            database : 'portal_noticias'
-        });
+var http = require('http');
 
-        connection.query('select * from noticias', function(erro, result){
-            res.send(result);
-        });
+var server = http.createServer(function(req,res){
+    var categoria = req.url;
+    if(categoria == '/tecnologia'){
+        res.end("<html><body>Notícias de Tecnologia</body></html>");
+    }else if(categoria == '/moda'){
+        res.end("<html><body>Notícias de Moda</body></html>");
+    }else if(categoria == '/beleza'){
+        res.end("<html><body>Notícias de Beleza</body></html>");
+    }else{
+        res.end("<html><body>Portal de Notícias</body></html>");
+    }
+});
 
-            //res.render("noticias/noticias");
-    });
-};
+server.listen(3000);
