@@ -1,2 +1,0 @@
-# nodejsportaldenoticias
-Portal de Noticias 

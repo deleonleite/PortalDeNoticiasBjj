@@ -1,12 +1,11 @@
 var app = require('./config/server');
 
-var rotaformularioinclusaonoticias = require('./app/routes/formularioinclusaonoticia')(app);
+var rotaNoticias = require('./app/routes/noticias')(app);
 
-var rotahome = require('./app/routes/home')(app);
+var rotaHome = require('./app/routes/home')(app);
 
-var rotanociticas = require('./app/routes/noticias')(app);
+var rotaFormInclusaoNoticia = require('./app/routes/form_inclusao_noticia')(app);
 
-
-app.listen(3009, function(){
-    console.log('servidor rodando com express');
+app.listen(3000, function(){
+    console.log("Servidor ON");
 });
